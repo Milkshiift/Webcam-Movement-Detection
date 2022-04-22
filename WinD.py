@@ -21,7 +21,10 @@ df = pandas.DataFrame(columns = ["Start", "End"])
  
 # Capturing video
 video = cv2.VideoCapture(0)
- 
+def Reset():
+    global static_back
+    static_back = None
+    print("reset!")
 # Infinite while loop to treat stack of image as video
 while True:
     # Reading frame(image) from video
@@ -105,7 +108,9 @@ while True:
         print("Movement detected")
     if motion == 0:
         motiond = False
+    keyboard.add_hotkey("ctrl+alt+j", lambda: Reset())
 # Appending time of motion in DataFrame
+
 for i in range(0, len(time), 2):
     df = df.append({"Start":time[i], "End":time[i + 1]}, ignore_index = True)
  
