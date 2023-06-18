@@ -16,6 +16,7 @@ Why this thing is worth something:
 - Video capture width/height: Configure the size of captured frame for performance benefits. Usually unsupported by webcams.
 - Region of interest: Define a region where the program will detect movement.
 - Kernel size: Smaller values provide more detail but more noise, higher values provide less noise but less detail. Recommended in the range of 1-10.
+- Blur strength: Higher values filter out more small movements and noise. Set to higher value if the app triggers from seemingly no changes in the region of interest.
 - Debug mode: If enabled beeps instead of executing defined action from `DoAfterDetection` function
 
 ## How do I change the action when movement is detected?
