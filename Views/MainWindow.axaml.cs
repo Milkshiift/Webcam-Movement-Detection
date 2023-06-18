@@ -43,9 +43,9 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         MinWidth = 700; // Set the minimum width of the window
-        MinHeight = 550;
+        MinHeight = 600;
         Width = 700;
-        Height = 550;
+        Height = 600;
         InitializeComponent();
         ViewModel = new MainWindowViewModel();
 
@@ -92,7 +92,7 @@ public partial class MainWindow : Window
     {
         using var fgmask = new Mat();
         frame.SubMat(_roi).CopyTo(fgmask);
-        Cv2.GaussianBlur(fgmask, fgmask, new Size(21, 21), 0);
+        Cv2.GaussianBlur(fgmask, fgmask, new Size(ViewModel.BlurStrength, ViewModel.BlurStrength), 0);
         _fgbg.Apply(fgmask, fgmask);
 
         var kernel = Cv2.GetStructuringElement(MorphShapes.Rect, new Size(ViewModel.KernelSize, ViewModel.KernelSize));

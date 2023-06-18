@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:MovementDetectionGUI.ViewModels"
-        mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="550"
+        mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="600"
         x:Class="MovementDetectionGUI.Views.MainWindow"
         x:DataType="viewModels:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
@@ -46,6 +46,11 @@
                 <TextBox x:Name="TxtKernelSize" Width="100" VerticalAlignment="Center" Text="{Binding KernelSize}" />
             </StackPanel>
 
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Blur Strength:" Width="200" VerticalAlignment="Center" />
+                <TextBox x:Name="TxtBlurStrength" Width="100" VerticalAlignment="Center" Text="{Binding BlurStrength}" />
+            </StackPanel>
+            
             <!-- Debug Mode -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Debug Mode:" Width="200" VerticalAlignment="Center" />

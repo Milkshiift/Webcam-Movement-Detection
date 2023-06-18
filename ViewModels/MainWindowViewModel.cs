@@ -71,6 +71,13 @@ public class MainWindowViewModel : ViewModelBase
         set => this.RaiseAndSetIfChanged(ref _kernelSize, value);
     }
     
+    private int _blurStrength = 21;
+    public int BlurStrength
+    {
+        get => _blurStrength;
+        set => this.RaiseAndSetIfChanged(ref _blurStrength, value);
+    }
+    
     
     private int _captureWidth = 100;
     public int CaptureWidth
