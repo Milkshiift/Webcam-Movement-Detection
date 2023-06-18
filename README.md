@@ -1,7 +1,9 @@
 # Webcam movement detection GUI
 
-Program that can do anything you want when it detects movement on your connected camera.    
-By default it presses Ctrl+Win+RightArrow to switch to the next desktop.
+<div align="center">
+<img src="./Assets/Readme.png" width="320" alt="GoofCord logo">
+<h3>An app that detects movement on your connected camera and allows you to define custom actions to perform when movement is detected.<br><sub><sup>By default it presses Ctrl+Win+RightArrow to switch to the next desktop.</sup></sub></h3>
+</div>   
 
 Why this thing is worth something:    
  - Has a nice GUI
