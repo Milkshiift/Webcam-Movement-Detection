@@ -1,0 +1,78 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:MovementDetectionGUI.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="550"
+        x:Class="MovementDetectionGUI.Views.MainWindow"
+        x:DataType="viewModels:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Movement Detection GUI">
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <viewModels:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        <!-- Settings Section -->
+        <StackPanel Margin="20">
+            <TextBlock Text="Settings" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" />
+
+            <!-- Video Capture Width -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Video Capture Width:" Width="200" VerticalAlignment="Center" />
+                <TextBox x:Name="TxtCaptureWidth" Width="100" VerticalAlignment="Center" Text="{Binding CaptureWidth}" />
+            </StackPanel>
+
+            <!-- Video Capture Height -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Video Capture Height:" Width="200" VerticalAlignment="Center" />
+                <TextBox x:Name="TxtCaptureHeight" Width="100" VerticalAlignment="Center"
+                         Text="{Binding CaptureHeight}" />
+            </StackPanel>
+
+            <!-- Region of Interest (ROI) -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Region of Interest (x, y, w, h):" Width="200" VerticalAlignment="Center" />
+                <TextBox x:Name="TxtRoix" Width="50" VerticalAlignment="Center" Text="{Binding Roix}" />
+                <TextBox x:Name="TxtRoiy" Width="50" VerticalAlignment="Center" Text="{Binding Roiy}" />
+                <TextBox x:Name="TxtRoiWidth" Width="50" VerticalAlignment="Center" Text="{Binding RoiWidth}" />
+                <TextBox x:Name="TxtRoiHeight" Width="50" VerticalAlignment="Center" Text="{Binding RoiHeight}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Kernel Size:" Width="200" VerticalAlignment="Center" />
+                <TextBox x:Name="TxtKernelSize" Width="100" VerticalAlignment="Center" Text="{Binding KernelSize}" />
+            </StackPanel>
+
+            <!-- Debug Mode -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Debug Mode:" Width="200" VerticalAlignment="Center" />
+                <CheckBox x:Name="ChkDebugMode" VerticalAlignment="Center" IsChecked="{Binding DebugMode}" />
+            </StackPanel>
+
+            <TextBlock Text="Other" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" />
+            <!-- Status -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Status:" Width="200" VerticalAlignment="Center" />
+                <TextBlock x:Name="TxtStatus" VerticalAlignment="Center" Text="{Binding Status}" />
+            </StackPanel>
+
+            <!-- Processed Frame -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Preview:" Width="200" VerticalAlignment="Center" />
+                <Image Name="processedFrameImage" Stretch="Uniform" MaxWidth="200" />
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Start Detection Button -->
+        <Button x:Name="BtnStartDetection" Content="Start Detection" Width="150" Margin="20"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"
+                Click="btnStartDetection_Click" />
+        <!-- Stop Detection Button -->
+        <Button x:Name="BtnStopDetection" Content="Stop Detection" Width="150" Margin="0, 0, 190, 20"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"
+                Click="btnStopDetection_Click" />
+    </Grid>
+</Window>
