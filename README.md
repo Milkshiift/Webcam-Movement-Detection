@@ -21,3 +21,10 @@
 5. Configure the settings
 6. Set `debug` to `False` and run again
 You can modify the `on_movement_detected()` function to change what happens when movement is detected
+
+## How does it work?
+Here is the algorithm:
+1. Capture the image from a webcam
+2. Downscale the image
+3. Convert to hsv and remove brightness information
+4. Compare the hues of the processed image to the previous frame's hues
